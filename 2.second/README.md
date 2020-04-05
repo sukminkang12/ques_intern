@@ -89,7 +89,7 @@ In Local,
 
 And you can get "pub file" and "rsa file", you must send .pub file to container .
 
-$ docker cp [path(rsa file)] git-server:/home/[your_own_/
+$ docker cp [path(rsa file)] git-server:/home/[your_own_folder]/
 
 $ docker-compose restart
 
