@@ -1,0 +1,18 @@
+version: '3'
+services: 
+  up:
+    image: jws5745/up-http-server
+    volumes:
+    - ./sdir:/home/ques/files
+    ports:
+    - "8081:22"
+
+  down:
+    image: jws5745/down-http-server
+    volumes:
+    - ./sdir:/files/
+    command:
+      http-server --username ques --password ques 
+    ports:
+    - "8082:8080"
+   

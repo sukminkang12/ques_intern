@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  server:
+    image: gogs/gogs
+    container_name: gogs
+    restart: always
+    volumes:
+      - ./gogs-data:/data gogs/gogs
+    ports:
+      - "10022:22"
+      - "10080:3000"

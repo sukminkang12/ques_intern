@@ -1,0 +1,28 @@
+version: '3'
+
+volumes:
+        mongodbdata:
+            external: true
+
+services:
+  app:
+    container_name: docker-node-mongo
+    restart: always
+    build: .
+    ports:
+      - '80:3000'
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    restart: always 
+    image: mongo:4.0
+    environment:    
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1
+    ports:                
+      - 27017:27017
+    volumes:
+      - 'mongodbdata:/data/db'
+    command: mongod --smallfiles --logpath=/dev/null
+

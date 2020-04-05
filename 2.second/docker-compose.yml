@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  git-server:
+    image: mygit
+    restart: always
+    container_name: git-server
+    ports:
+      - "2223:22"
+    volumes:
+    - ./git_data/keys:/git-server/keys
+    - ./git_data/repos:/git-server/repos
